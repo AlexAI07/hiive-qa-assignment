@@ -298,4 +298,17 @@ test(
     await expect(app.timezoneSelect).toBeVisible();
   }
 );
+
+test(
+  "reaches the Add timezone button with Tab",
+  { annotation: [{ type: "spec", description: "R4" }] },
+  async ({ app, page }) => {
+    await app.open();
+
+    await page.keyboard.press("Tab");
+
+    await expect(app.addTimezoneButton).toBeFocused();
+  }
+);
+
 });
