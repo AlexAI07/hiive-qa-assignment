@@ -294,6 +294,8 @@ test(
     await page.keyboard.press("Enter");
 
     await expect(app.form).toBeVisible();
+    await expect(app.labelInput).toBeVisible();
+    await expect(app.timezoneSelect).toBeVisible();
   }
 );
 });
