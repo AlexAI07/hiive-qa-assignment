@@ -283,4 +283,17 @@ test.describe("R4 - adding a timezone record", () => {
       expect(mismatches, mismatches.join("; ")).toEqual([]);
     }
   );
+
+test(
+  "opens the add-timezone form using the keyboard",
+  { annotation: [{ type: "spec", description: "R4" }] },
+  async ({ app, page }) => {
+    await app.open();
+
+    await app.addTimezoneButton.focus();
+    await page.keyboard.press("Enter");
+
+    await expect(app.form).toBeVisible();
+  }
+);
 });
